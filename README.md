@@ -15,7 +15,7 @@ A functions wrapping of OpenSSL library for symmetric and asymmetric encryption 
 The only requirement is the [Go Programming Language](https://golang.org/dl/)
 
 ```
-go get -u github.com/forgoer/openssl
+go get -u github.com/sdcxtech/openssl/v2
 ```
 
 ## Usage
@@ -94,8 +94,8 @@ openssl.RSAGeneratePublicKey(priKey []byte, out io.Writer)
 openssl.RSAEncrypt(src, pubKey []byte) ([]byte, error)
 openssl.RSADecrypt(src, priKey []byte) ([]byte, error)
 
-openssl.RSASign(src []byte, priKey []byte) ([]byte, error)
-openssl.RSAVerify(src, sign, pubKey []byte) error
+openssl.RSASign(src []byte, priKey []byte, hash crypto.Hash) ([]byte, error)
+openssl.RSAVerify(src, sign, pubKey []byte, hash crypto.Hash) error
 ```
 
 ## License
